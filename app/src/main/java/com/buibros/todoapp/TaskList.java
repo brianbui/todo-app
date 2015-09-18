@@ -1,18 +1,14 @@
 package com.buibros.todoapp;
 
-import android.app.AlertDialog;
-import android.content.ContentValues;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -65,33 +61,9 @@ public class TaskList extends AppCompatActivity {
             return true;
         }
         else if (id == R.id.action_add_task) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Add a task");
-            builder.setMessage("What do you want to do?");
-            final EditText inputField = new EditText(this);
-            builder.setView(inputField);
-            builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    String task = inputField.getText().toString();
-                    Log.d ("TaskList", task);
+            Intent newTaskIntent = new Intent(this, NewTaskInput.class);
+            startActivity(newTaskIntent);
 
-                    helper = new TaskDBHelper(TaskList.this);
-                    SQLiteDatabase db = helper.getWritableDatabase();
-                    ContentValues values = new ContentValues();
-                    values.clear();
-                    values.put(TaskContract.Columns.TASK, task);
-
-                    db.insertWithOnConflict(TaskContract.TABLE,
-                            null,
-                            values,
-                            SQLiteDatabase.CONFLICT_IGNORE);
-                    updateUI();
-                }
-            });
-            builder.setNegativeButton("Cancel", null);
-
-            builder.create().show();
             return true;
         }
 
