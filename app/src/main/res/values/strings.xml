@@ -7,4 +7,5 @@
     <string name="title_activity_task_list">TaskList</string>
     <string name="title_activity_new_task_input">NewTaskInput</string>
     <string name="to_do_input">To Do:</string>
+    <string name="title_activity_pomodoro_timer">PomodoroTimerActivity</string>
 </resources>

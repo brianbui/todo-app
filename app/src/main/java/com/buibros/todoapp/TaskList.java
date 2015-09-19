@@ -66,11 +66,16 @@ public class TaskList extends AppCompatActivity {
 
             return true;
         }
+        else if (id == R.id.action_timer) {
+            Intent timerIntent = new Intent(this, PomodoroTimerActivity.class);
+            startActivity(timerIntent);
 
+            return true;
+        }
 
-
-            return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);
     }
+
     public void onDoneButtonClick(View view)
     {
         View v = (View) view.getParent();
