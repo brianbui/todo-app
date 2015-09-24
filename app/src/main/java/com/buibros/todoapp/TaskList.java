@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 public class TaskList extends AppCompatActivity {
     private TaskDBHelper helper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,15 +28,15 @@ public class TaskList extends AppCompatActivity {
         helper = new TaskDBHelper(TaskList.this);
         SQLiteDatabase sqlDB = helper.getReadableDatabase();
         Cursor cursor = sqlDB.query(TaskContract.TABLE,
-                new String[]{TaskContract.Columns._ID, TaskContract.Columns.TASK},
+                new String[]{TaskContract.Columns._ID, TaskContract.Columns.TASK, TaskContract.Columns.DATE},
                 null, null, null, null, null);
 
         ListAdapter listAdapter = new SimpleCursorAdapter(
                 this,
                 R.layout.list_item_task,
                 cursor,
-                new String[] { TaskContract.Columns.TASK},
-                new int[] { R.id.taskTextView},
+                new String[]{TaskContract.Columns.TASK, TaskContract.Columns.DATE},
+                new int[]{R.id.taskTextView, R.id.dateTextView},
                 0
         );
         ListView listView = (ListView) findViewById(android.R.id.list);
@@ -59,31 +60,37 @@ public class TaskList extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        }
-        else if (id == R.id.action_add_task) {
+        } else if (id == R.id.action_add_task) {
             Intent newTaskIntent = new Intent(this, NewTaskInput.class);
-            startActivity(newTaskIntent);
+            startActivityForResult(newTaskIntent, 0);
 
             return true;
         }
 
 
-
-            return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);
     }
-    public void onDoneButtonClick(View view)
-    {
+
+    public void onDoneButtonClick(View view) {
         View v = (View) view.getParent();
         TextView taskTextView = (TextView) v.findViewById(R.id.taskTextView);
         String task = taskTextView.getText().toString();
 
         String sql = String.format("DELETE FROM %s WHERE %s = '%s'",
-        TaskContract.TABLE,
-        TaskContract.Columns.TASK,
-        task);
+                TaskContract.TABLE,
+                TaskContract.Columns.TASK,
+                task);
         helper = new TaskDBHelper(this);
         SQLiteDatabase sqlDB = helper.getWritableDatabase();
         sqlDB.execSQL(sql);
         updateUI();
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                updateUI();
+            }
+        }
     }
 }
