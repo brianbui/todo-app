@@ -5,16 +5,17 @@
     tools:context="com.buibros.todoapp.PomodoroTimerActivity">
 
     <TextView
-        android:id="@+id/timer"
+        android:id="@+id/timer_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:paddingRight="10dip"
-        android:textSize="50dp" />
+        android:textSize="50dp"
+        android:layout_above="@+id/timer_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="95dp" />
 
     <Button
-        android:id="@+id/start_button"
+        android:id="@+id/timer_button"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
