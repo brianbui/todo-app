@@ -66,12 +66,22 @@ public class TaskList extends AppCompatActivity {
 
             return true;
         }
+        else if (id == R.id.action_timer) {
+            Intent timerIntent = new Intent(this, PomodoroTimerActivity.class);
+            startActivity(timerIntent);
 
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
 
+<<<<<<< HEAD
+    public void onDoneButtonClick(View view)
+    {
+=======
     public void onDoneButtonClick(View view) {
+>>>>>>> master
         View v = (View) view.getParent();
         TextView taskTextView = (TextView) v.findViewById(R.id.taskTextView);
         String task = taskTextView.getText().toString();
