@@ -9,17 +9,25 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".TaskList"
-            android:label="@string/title_activity_task_list"
             android:exported="true"
-            >
+            android:label="@string/title_activity_task_list" >
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".NewTaskInput"
             android:label="@string/title_activity_new_task_input"
+            android:parentActivityName=".TaskList" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.buibros.todoapp.TaskList" />
+        </activity>
+        <activity
+            android:name=".PomodoroTimerActivity"
+            android:label="@string/title_activity_pomodoro_timer"
             android:parentActivityName=".TaskList" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
