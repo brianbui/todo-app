@@ -76,12 +76,7 @@ public class TaskList extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-<<<<<<< HEAD
-    public void onDoneButtonClick(View view)
-    {
-=======
     public void onDoneButtonClick(View view) {
->>>>>>> master
         View v = (View) view.getParent();
         TextView taskTextView = (TextView) v.findViewById(R.id.taskTextView);
         String task = taskTextView.getText().toString();
