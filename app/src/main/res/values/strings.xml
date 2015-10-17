@@ -9,4 +9,15 @@
     <string name="to_do_input">To Do:</string>
     <string name="timer_button_text">Start</string>
     <string name="reset_button_text">Reset</string>
+    <string name="title_activity_task_detail">TaskDetail</string>
+
+    <string name="hello_world">Hello world!</string>
+
+    <!-- getString(String, Object...) does not support HTML tags directly, they need to be encoded first.
+   Original string: <b>%1$s</b><br/><i>Place Id: %2$s</i><br/>Address: %3$s<br/>Phone: %4$s<br/>Website: %5$s-->
+    <string name="place_details">&lt;b&gt;%1$s&lt;/b&gt;&lt;br/&gt;&lt;i&gt;Place Id: %2$s&lt;/i&gt;&lt;br/&gt;Address: %3$s&lt;br/&gt;Phone: %4$s&lt;br/&gt;Website: %5$s</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="newTaskInputHint">I need to...</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.buibros.todoapp;
+package com.buibros.todoapp.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -23,13 +23,15 @@ public class TaskDBHelper  extends SQLiteOpenHelper{
                         "%s TEXT," +
                         "%s TEXT," +
                         "%s INTEGER" +
+                        "%s INTEGER" +
                         ")",
                     TaskContract.TABLE,
                     TaskContract.Columns.TASK,
                     TaskContract.Columns.DATE,
                     TaskContract.Columns.LOCATION,
                     TaskContract.Columns.PRIORITY,
-                    TaskContract.Columns.DURATION);
+                    TaskContract.Columns.DURATION,
+                    TaskContract.Columns.SUBTASK_OF);
 
         Log.v("TaskDBHelper", "Query to form table"+sqlQuery);
         sqlDB.execSQL(sqlQuery);
