@@ -1,4 +1,4 @@
-package com.buibros.todoapp;
+package com.buibros.todoapp.db;
 
 import android.provider.BaseColumns;
 
@@ -18,5 +18,6 @@ public class TaskContract {
         public static final String LOCATION = "location";
         public static final String PRIORITY = "priority";
         public static final String DURATION = "duration";
+        public static final String SUBTASK_OF = "subtask";
     }
 }

@@ -1,0 +1,22 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="com.buibros.todoapp.activities.TaskList.TaskListFragment">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/taskListToolbar"
+        android:layout_height="@dimen/toolbar_default_height"
+        android:layout_width="match_parent"
+        android:minHeight="@dimen/toolbar_default_height"
+        android:background = "?attr/colorPrimary"
+        android:elevation="4dp"/>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@android:id/list"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_new_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_task_add"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|end" />
+</FrameLayout>
