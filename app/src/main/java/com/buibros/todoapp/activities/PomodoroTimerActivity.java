@@ -29,7 +29,7 @@ public class PomodoroTimerActivity extends ActionBarActivity {
     // Formatted string for displaying time
     private static final String FORMAT = "%02d:%02d";
     // Work time is 25 minutes
-    private static final long START_WORK_TIME = 10 * 1000; // in milliseconds
+    private static final long START_WORK_TIME = 5 * 1000; // in milliseconds
     // Rest time is 5 minutes
     private static final long START_REST_TIME = 3 * 1000; // in milliseconds
     // Interval time is 250 milliseconds
@@ -49,7 +49,7 @@ public class PomodoroTimerActivity extends ActionBarActivity {
 
         // Initialize layout background color
         layout = (RelativeLayout) findViewById(R.id.timer_layout);
-        layout.setBackgroundColor(Color.WHITE);
+        layout.setBackgroundColor(Color.BLUE);
 
         // Initialize count down text view with formatted starting time
         timerTextRemaining = (TextView) findViewById(R.id.timer_text_remaining);
@@ -186,7 +186,7 @@ public class PomodoroTimerActivity extends ActionBarActivity {
             // Display message when timer finishes
             timerTextRemaining.setText("Time's up!");
             // Change background color
-            layout.setBackgroundColor(Color.YELLOW);
+            layout.setBackgroundColor(Color.BLUE);
             // Hide timer button
             timerButton.setVisibility(View.INVISIBLE);
         }
